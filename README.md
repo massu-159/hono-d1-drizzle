@@ -1,10 +1,10 @@
 # hono-d1-drizzle
 
-hono を利用したAPIを作成。
+`hono` を利用したAPIを作成。
 todoアプリのCRUD処理
 
-DBにはcloudflare D1を利用
-ORMにはdrozzleを利用
+DBには `cloudflare D1` を利用
+ORMには `drizzle` を利用
 
 urlはこちら
 https://github.com/massu-159/hono-d1-drizzle
@@ -50,5 +50,12 @@ bun run dev
 
 ### 2-2. 構成技術
 ```
-
+		"@cloudflare/vitest-pool-workers": "^0.6.4",
+		"@cloudflare/workers-types": "^4.20250224.0",
+		"drizzle-kit": "^0.30.5",
+		"typescript": "^5.5.2",
+		"vitest": "~2.1.9",
+		"wrangler": "^3.109.3"
+		"drizzle-orm": "^0.40.0",
+		"hono": "^4.7.2"
 ```
