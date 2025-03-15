@@ -2,8 +2,22 @@ import { drizzle } from 'drizzle-orm/d1';
 import { eq } from 'drizzle-orm';
 import { Hono } from 'hono';
 import { todos } from '../db/schema';
+import { cors } from 'hono/cors';
 
 const app = new Hono<{ Bindings: Bindings }>().basePath('/api');
+
+// CORSを許可
+app.use(
+	'http://localhost:3000',
+	cors({
+		origin: ['http://localhost:3000'],
+		allowHeaders: ['X-Custom-Header', 'Upgrade-Insecure-Requests', 'Content-Type'],
+		allowMethods: ['POST', 'GET', 'OPTIONS'],
+		exposeHeaders: ['Content-Length', 'X-Kuma-Revision'],
+		maxAge: 600,
+		credentials: true,
+	})
+);
 
 // 全件取得
 app.get('/todos', async (c) => {
